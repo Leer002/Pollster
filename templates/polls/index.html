@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> Poll Questions </h1>
+{% if latest_question_list %}
+    {% for question in latest_question_list %}
+        <div>
+            <p> {{question.question_text}} </p>
+            <ul>
+                {% for choice in question.choice_set.all %}
+                    <li>{{ choice.choice_text }}: {{ choice.votes }} votes</li>
+                {% empty %}
+                    <li>No choices available for this question.</li>
+                {% endfor %}
+            </ul>
+            {% if question.id %}
+                <a href="{% url 'polls:detail' question.id %}">Vote Now</a>
+                <a href = "{% url 'polls:results' question.id %}"> Results </a>
+            {% else %}
+                <p>No valid question ID available.</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% else %}
+    <p > No polls available </p>
+{% endif %}
+{% endblock %}
+
