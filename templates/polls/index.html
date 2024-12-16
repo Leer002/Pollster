@@ -1,27 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1> Poll Questions </h1>
+<h1 class="title"> Poll Questions </h1>
 {% if latest_question_list %}
     {% for question in latest_question_list %}
-        <div>
-            <p> {{question.question_text}} </p>
-            <ul>
-                {% for choice in question.choice_set.all %}
-                    <li>{{ choice.choice_text }}: {{ choice.votes }} votes</li>
-                {% empty %}
-                    <li>No choices available for this question.</li>
-                {% endfor %}
-            </ul>
-            {% if question.id %}
-                <a href="{% url 'polls:detail' question.id %}">Vote Now</a>
-                <a href = "{% url 'polls:results' question.id %}"> Results </a>
-            {% else %}
-                <p>No valid question ID available.</p>
-            {% endif %}
-        </div>
+        <b>
+            <div>
+                <p class="question_text"> {{question.question_text}} </p>
+                <ul class="list">
+                    {% for choice in question.choice_set.all %}
+                        <li class="choice">{{ choice.choice_text }}: {{ choice.votes }} votes</li>
+                    {% empty %}
+                        <li>No choices available for this question.</li>
+                    {% endfor %}
+                </ul>
+                {% if question.id %}
+                    <span class="option">
+                        <a href="{% url 'polls:detail' question.id %}">Vote Now</a>
+                        <a href = "{% url 'polls:results' question.id %}"> Results </a>
+                    </span>
+                {% else %}
+                    <p>No valid question ID available.</p>
+                {% endif %}
+            </div>
+        </b>
     {% endfor %}
 {% else %}
-    <p > No polls available </p>
+    <b><p> No polls available </p></b>
 {% endif %}
 {% endblock %}
 

@@ -1,16 +1,15 @@
-from django.shortcuts import render
-
-from django.http import Http404, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import View
+
 from .models import Question, Choice
 
 class PollsBaseView(View):
     model = Question
 
     def get_question(self, question_id):
-        return get_object_or_404(self.model, pk=question_id)
+        return get_object_or_404(self.model, pk=question_id) 
 
 class IndexView(PollsBaseView):
     def get(self, request):

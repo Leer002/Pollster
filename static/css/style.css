@@ -1,0 +1,60 @@
+.nav a {
+    text-decoration: none;
+    color: darkred; 
+}
+
+.nav {
+    border-left: 3px solid royalblue;
+    border-right: 3px solid royalblue;
+    padding: 6px;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.insgesamt {
+    border: 3px solid royalblue;
+    padding: 20px;
+    width: fit-content;
+    transition: border-radius .3s ease-in-out;
+}
+
+.insgesamt:hover {
+    color: darkred;
+    border-radius: 20px;
+}
+
+li {
+    list-style: decimal;
+    width: fit-content;
+}
+
+h1 {
+    border-left: 3px solid navy;
+    border-right: 3px solid navy;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    transition: border-radius .4s ease-in-out;
+}
+
+h1:hover{
+    color: darkred;
+    border-radius: 15px;
+}
+
+.question_text:hover{
+    color: darkred;
+}
+
+li:hover{
+    color: darkred;
+}
+
+a{
+    color: darkslateblue;
+}
+
+.list-result {
+    width: fit-content;
+    margin: 5px;
+}

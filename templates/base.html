@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html >
 <html lang = "en" >
 
@@ -5,15 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title > Pollster {% block title %}{% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
 <!--NavBar-->
-    {% include 'partials/_navbar.html'%}
-    <div>
-        {% block content %}
-        {% endblock%}
-    </div>
+    <div class="nav">{% include 'partials/_navbar.html'%}</div>
+    <center>
+        <div>
+            {% block content %}
+            {% endblock%}
+        </div>
+    </center>
 </body>
 
 </html>
