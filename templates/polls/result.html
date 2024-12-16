@@ -6,7 +6,8 @@
     {% for choice in question.choice_set.all %}
         <li class="list-result">
         {{choice.choice_text}} <span> {{choice.votes}}
-        {{choice.votes | pluralize, "Vote, Votes"}} </span>
+        {{ choice.votes|pluralize:"Vote, Votes" }}
+        </span>
         </li >
     {% endfor %}
 </ul >
